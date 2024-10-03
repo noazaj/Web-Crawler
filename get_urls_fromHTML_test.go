@@ -2,15 +2,15 @@ package main
 
 import "testing"
 
-func TestgetURLsFromHTML(t *testing.T) {
-	tests := []struct{
-		name 		string
-		inputURL 	string
-		inputBody 	string
-		expected 	[]string
+func TestGetURLsFromHTML(t *testing.T) {
+	tests := []struct {
+		name      string
+		inputURL  string
+		inputBody string
+		expected  []string
 	}{
 		{
-			name: "absolute and relative URLs",
+			name:     "absolute and relative URLs",
 			inputURL: "https://blog.boot.dev",
 			inputBody: `
 					<html>

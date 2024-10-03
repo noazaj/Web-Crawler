@@ -17,26 +17,16 @@ func main() {
 
 	// Get the URL argument
 	url := os.Args[1]
+	pages := make(map[string]int)
 
 	fmt.Println("starting crawl")
-	fmt.Println(url)
 
 	// Get the HTML body
-	rawHTML, err := GetHTML(url)
-	if err != nil {
-		fmt.Printf("error getting HTMl body: %v", err)
-		os.Exit(1)
-	}
+	page := crawlPage(url, url, pages, 10)
 
-	// Parse the URLs from the HTML body
-	urls, err := GetURLsFromHTML(rawHTML, url)
-	if err != nil {
-		fmt.Printf("Error parsing URLs from HTML: %v\n", err)
-		os.Exit(1)
-	}
-
+	fmt.Printf("\nURLs and their Counts:\n--------------------------------------------\n\n")
 	// Print the extracted URLs
-	for _, extractedURL := range urls {
-		fmt.Println(extractedURL)
+	for extractedURL, count := range page {
+		fmt.Printf("Extracted URL: %s\nCount: %d\n\n", extractedURL, count)
 	}
 }

@@ -11,5 +11,5 @@ func normalizeURL(rawURL string) (string, error) {
 		return "", err
 	}
 
-	return fmt.Sprintf("%v%v", parsedURL.Host, parsedURL.Path), nil
+	return fmt.Sprintf("%v://%v%v", parsedURL.Scheme, parsedURL.Host, parsedURL.Path), nil
 }

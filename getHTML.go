@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func GetHTML(rawURL string) (string, error) {
+func getHTML(rawURL string) (string, error) {
 	resp, err := http.Get(rawURL)
 	if err != nil {
 		log.Fatalf("error making 'GET' request to URL: %s", rawURL)
